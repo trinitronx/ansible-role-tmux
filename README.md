@@ -1,0 +1,57 @@
+Role Name
+=========
+
+Installs and configures [tmux][1] on a host.
+
+Requirements
+------------
+
+none
+
+Role Variables
+--------------
+
+The default role variables in `defaults/main.yml` are:
+
+    ---
+    # defaults file for tmux
+    tmux_install_latest: true
+    # tmux_version:  ## This is not defined by default
+
+If you want to install a specific version, set `tmux_install_latest: false` and `tmux_version` to the version you want.
+
+Dependencies
+------------
+
+none
+
+Example Playbook
+----------------
+
+To run this playbook with default settings, create a basic playbook like this:
+
+    - hosts: servers
+      roles:
+         - tmux
+
+To install a specific version:
+
+    - hosts: servers
+      roles:
+         - { role: trinitronx.tmux, tmux_install_latest: false, tmux_version: 1.8-4 }
+
+
+License
+-------
+
+[MIT][3]
+
+Author Information
+------------------
+
+(c) 2014 [Hiroaki Nakamura][3] @hnakamur - tasks/homebrew_package.yml originally based on hnakamur/ansible-role-osx-tmux
+(c) 2014 James Cuzella @trinitronx
+
+[1]: http://tmux.sourceforge.net/
+[2]: http://choosealicense.com/licenses/mit/
+[3]: http://hnakamur.github.io/
