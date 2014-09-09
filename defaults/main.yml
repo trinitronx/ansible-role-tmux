@@ -1,0 +1,4 @@
+---
+# defaults file for tmux
+tmux_install_latest: true
+# tmux_version:
