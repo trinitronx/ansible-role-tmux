@@ -52,7 +52,7 @@ License
 Author Information
 ------------------
 
-(c) 2014 [Hiroaki Nakamura][4] @hnakamur - tasks/homebrew_package.yml originally based on hnakamur/ansible-role-osx-tmux
+(c) 2014 [Hiroaki Nakamura][4] @hnakamur - tasks/homebrew_package.yml, templates/tmux.conf.j2 originally based on hnakamur/ansible-role-osx-tmux
 (c) 2014 James Cuzella @trinitronx
 
 [1]: http://tmux.sourceforge.net/
