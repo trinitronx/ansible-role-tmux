@@ -1,0 +1,7 @@
+---
+# tasks file for installing tmux on apt based distros
+- name: Install tmux via apt
+  apt: name=tmux{% if tmux_version is defined %}={{ tmux_version }}{% endif %}
+       update_cache=yes
+       cache_valid_time=3600
+       state={% if tmux_install_latest is not defined and tmux_version is not defined %}latest{% else %}present{% endif %}

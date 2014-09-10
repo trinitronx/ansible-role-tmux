@@ -1,0 +1,5 @@
+---
+# tasks file for installing tmux on yum based distros
+- name: Install tmux via yum
+  yum: name=tmux{% if tmux_version is defined %}-{{ tmux_version }}{% endif %}
+       state={% if tmux_install_latest is not defined and tmux_version is not defined %}latest{% else %}present{% endif %}
