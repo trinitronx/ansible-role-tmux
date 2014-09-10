@@ -6,7 +6,10 @@ Installs and configures [tmux][1] on a host.
 Requirements
 ------------
 
-none
+ - Linux
+   - none
+ - OSX
+   - [Homebrew][2] must be installed.
 
 Role Variables
 --------------
@@ -49,9 +52,10 @@ License
 Author Information
 ------------------
 
-(c) 2014 [Hiroaki Nakamura][3] @hnakamur - tasks/homebrew_package.yml originally based on hnakamur/ansible-role-osx-tmux
+(c) 2014 [Hiroaki Nakamura][4] @hnakamur - tasks/homebrew_package.yml originally based on hnakamur/ansible-role-osx-tmux
 (c) 2014 James Cuzella @trinitronx
 
 [1]: http://tmux.sourceforge.net/
-[2]: http://choosealicense.com/licenses/mit/
-[3]: http://hnakamur.github.io/
+[2]: http://brew.sh/
+[3]: http://choosealicense.com/licenses/mit/
+[4]: http://hnakamur.github.io/
