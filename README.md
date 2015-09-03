@@ -1,5 +1,6 @@
 Role Name
 =========
+[![Gratipay](http://img.shields.io/gratipay/trinitronx.svg)](https://www.gratipay.com/trinitronx)
 
 Installs and configures [tmux][1] on a host.
 
