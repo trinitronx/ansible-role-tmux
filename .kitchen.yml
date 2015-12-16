@@ -7,7 +7,11 @@ provisioner:
   name: ansible_playbook
 #  roles_path:
   hosts: test-kitchen
-  require_ansible_repo: true
+  require_ansible_repo: false
+  require_ansible_omnibus: true
+  ansible_omnibus_url: https://raw.githubusercontent.com/neillturner/omnibus-ansible/17e7f9cac9ca1163324ddf6ec3bd090a31e9719a/ansible_install.sh
+  require_chef_for_busser: true
+  require_ruby_for_busser: false
   ansible_verbose: true
   ansible_verbosity: 2
   sudo: true
