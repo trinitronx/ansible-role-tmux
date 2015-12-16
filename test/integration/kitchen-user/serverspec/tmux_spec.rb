@@ -14,7 +14,7 @@ describe file('/usr/bin/tmux') do
   it { should be_grouped_into 'root' }
 end
 
-describe file('/root/.tmux.conf') do
+describe file('/home/kitchen/.tmux.conf') do
   it { should be_file }
   its(:content) { should match /^set -g default-terminal "xterm-256color"$/ }
 end
