@@ -19,15 +19,20 @@ provisioner:
     a: b
 
 platforms:
-  - name: ubuntu-10.04 # lucid
-  - name: ubuntu-12.04 # precise
-  - name: ubuntu-13.10 # saucy
-  - name: ubuntu-14.04 # trusty
-  # - name: ubuntu-14.10 # utopic ## No bento box yet... Official Scheduled Release: October 23rd 2014
+  ## https://wiki.ubuntu.com/Releases
+  ## http://www.ubuntu.com/info/release-end-of-life
+  - name: ubuntu-10.04 # lucid LTS
+  - name: ubuntu-12.04 # precise LTS
+  ## - name: ubuntu-13.10 # saucy ## EOL July 17, 2014
+  - name: ubuntu-14.04 # trusty LTS
+  ## - name: ubuntu-14.10 # utopic  ## EOL July 23, 2015
+  - name: ubuntu-15.04 # vivid ## EOL January 2016
+  - name: ubuntu-15.10 # wily ## EOL July 2016
+  - name: ubuntu-16.04 # xenial LTS
   # - name: centos-5.10 # TODO: NOT TESTED YET... unsure if kitchen-ansible works yet...
   - name: centos-6.4
   - name: centos-6.5
-  # - name: centos-7.0 # TODO: Needs work to fix kitchen-ansible repo to use
+  - name: centos-7.0
   # - name: nocm_centos-6.5
   #   driver_plugin: vagrant
   #   driver_config:
