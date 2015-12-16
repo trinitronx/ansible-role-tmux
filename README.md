@@ -1,6 +1,7 @@
 Role Name
 =========
 [![Gratipay](http://img.shields.io/gratipay/trinitronx.svg)](https://www.gratipay.com/trinitronx)
+[![Ansible Galaxy](https://img.shields.io/ansible/role/1672.svg)](https://galaxy.ansible.com/detail#/role/1672)
 
 Installs and configures [tmux][1] on a host.
 
