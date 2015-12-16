@@ -1,0 +1,22 @@
+---
+# tasks file for tmux
+
+- include: apt_package.yml
+  when: ansible_pkg_mgr == 'apt'
+- include: yum_package.yml
+  when: ansible_pkg_mgr == 'yum'
+- include: homebrew_package.yml
+  when: ansible_os_family == 'Darwin'
+- name: tmux - Ensure permissions on /usr/bin/tmux
+  file: >
+    path=/usr/bin/tmux
+    owner=root
+    group=root
+    mode=0755
+
+- name: "install tmux config for user: {{ item }}"
+  template: src=tmux.conf.j2 dest=~{{ item }}/.tmux.conf
+  with_items:
+    - tmux_users
+  tags:
+    - tmux_conf
