@@ -2,5 +2,5 @@
 # defaults file for tmux
 tmux_install_latest: true
 tmux_users:
-  - {{ ansible_user }}
+  - "{{ ansible_user }}"
 # tmux_version:
