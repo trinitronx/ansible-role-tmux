@@ -16,6 +16,7 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 guard :yaml do
+  watch(%r{^(.*)\.yml$})
   watch(%r{^(.*)/(.*)\.yml$})
 end
 
