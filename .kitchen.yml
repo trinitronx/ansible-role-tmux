@@ -9,7 +9,7 @@ provisioner:
   hosts: test-kitchen
   require_ansible_repo: true
   ansible_verbose: true
-  ansible_verbosity: 4
+  ansible_verbosity: 2
   sudo: true
   extra_vars:
     a: b
