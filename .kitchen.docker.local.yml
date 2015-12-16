@@ -46,7 +46,7 @@ platforms:
     provision_command: *1
 - name: centos-7.0
   driver_config:
-    image: "trinitronx/ansible-base:devel-centos7"
+    image: "trinitronx/ansible-base:stable-centos7"
     platform: centos
     provision_command:
       - curl -L https://www.opscode.com/chef/install.sh | bash
