@@ -1,6 +1,15 @@
 ---
 # tasks file for tmux
 
+- name: tmux Debug
+  debug: >
+    msg="{{ item }}"
+  with_items:
+   # - "{{ tmux }}"
+   - "{{ tmux_users }}"
+   - "{{ ansible_pkg_mgr }}"
+   - "{{ ansible_os_family }}"
+
 - include: apt_package.yml
   when: ansible_pkg_mgr == 'apt'
 - include: yum_package.yml
@@ -16,7 +25,6 @@
 
 - name: "install tmux config for user: {{ item }}"
   template: src=tmux.conf.j2 dest=~{{ item }}/.tmux.conf
-  with_items:
-    - tmux_users
+  with_items: tmux_users
   tags:
     - tmux_conf
