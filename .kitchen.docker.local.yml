@@ -44,9 +44,21 @@ platforms:
     image: learndocker/centos
     platform: centos
     provision_command: *1
-- name: centos-7.0
+- name: centos-7
   driver_config:
     image: "trinitronx/ansible-base:stable-centos7"
+    platform: centos
+    provision_command:
+      - curl -L https://www.opscode.com/chef/install.sh | bash
+- name: centos-7.0-ansible-1.9.4
+  driver_config:
+    image: "trinitronx/ansible-base:stable-centos7"
+    platform: centos
+    provision_command:
+      - curl -L https://www.opscode.com/chef/install.sh | bash
+- name: centos-7.0-ansible-2.0
+  driver_config:
+    image: "trinitronx/ansible-base:devel-centos7"
     platform: centos
     provision_command:
       - curl -L https://www.opscode.com/chef/install.sh | bash
