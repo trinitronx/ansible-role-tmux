@@ -14,6 +14,7 @@ provisioner:
   require_ruby_for_busser: false
   ansible_verbose: true
   ansible_verbosity: 2
+  ansible_extra_flags: <%= ENV['ANSIBLE_EXTRA_FLAGS'] %>
   sudo: true
   extra_vars:
     a: b
