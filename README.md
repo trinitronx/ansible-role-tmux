@@ -1,4 +1,4 @@
-Role Name
+trinitronx.tmux
 =========
 [![Gratipay](http://img.shields.io/gratipay/trinitronx.svg)](https://www.gratipay.com/trinitronx)
 [![Ansible Galaxy](https://img.shields.io/ansible/role/1672.svg)](https://galaxy.ansible.com/detail#/role/1672)
