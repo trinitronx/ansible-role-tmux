@@ -8,13 +8,11 @@
 ## driver name: docker is for portertech/kitchen-docker
 driver:
   name: docker
-driver_config:
-  hostname: kitchen
-#  use_sudo: true
-  socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
-#  socket: tcp://localhost:4243
-#  require_chef_omnibus: true
-#  hostname: kitchen
+## https://github.com/test-kitchen/kitchen-docker/issues/54
+  use_sudo: false
+
+transport:
+  name: sftp
 
 platforms:
 #- name: centos-5.10
@@ -28,7 +26,7 @@ platforms:
   driver_config:
     image: learndocker/centos
     platform: centos
-    provision_command: &1
+    provision_command: &OMNIBUS_CHEF_ANSIBLE
       - curl -L https://www.opscode.com/chef/install.sh | bash
       - curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash
 
@@ -36,22 +34,22 @@ platforms:
   driver_config:
     image: learndocker/centos
     platform: centos
-    provision_command: *1
+    provision_command: *OMNIBUS_CHEF_ANSIBLE
 - name: centos-7
-  driver_config:
-    image: "trinitronx/ansible-base:stable-centos7"
-    platform: centos
-    provision_command:
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+  driver_config: &SYSTEMD_INIT
+    run_command: /usr/sbin/init
+    run_options:
+      - volume: "/sys/fs/cgroup:/sys/fs/cgroup"
+      - "--privileged"
 ## Precise Pangolin (LTS)
 - name: ubuntu-12.04
   driver_config:
-    provision_command: *1
-## Trusty Tahr LTS
+    provision_command: *OMNIBUS_CHEF_ANSIBLE
+## Trusty Tahr LTS ## HWE August 2016
 - name: ubuntu-14.04
   driver_config:
-    provision_command: *1
-## Vivid Vervet ## EOL January 2016
-- name: ubuntu-15.04
+    provision_command: *OMNIBUS_CHEF_ANSIBLE
+## Xenial Xerus ## EOL April 2021
+- name: ubuntu-16.04
   driver_config:
-    provision_command: *1
+    provision_command: *OMNIBUS_CHEF_ANSIBLE
