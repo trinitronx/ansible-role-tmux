@@ -36,6 +36,7 @@ before_install:
   - gem install kitchen-docker
   - gem list
   - which kitchen
+  - KITCHEN_YAML=.kitchen.docker.local.yml kitchen list
   - KITCHEN_YAML=.kitchen.docker.local.yml kitchen diagnose --all
 
 script:
