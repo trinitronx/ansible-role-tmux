@@ -36,6 +36,7 @@ before_install:
   - gem install kitchen-ansible
   - gem install kitchen-sync
   - gem install kitchen-docker
+  - gem install kitchen-vagrant
   - gem list
   - which kitchen
   - kitchen version
