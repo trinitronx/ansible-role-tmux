@@ -5,16 +5,18 @@ rvm:
   - 2.4
 
 env:
-#  - distribution: centos
-#    version: 6
+  - distribution: centos
+    version: 6.5
+  - distribution: centos
+    version: 6.9
   - distribution: centos
     version: 7
   - distribution: ubuntu
+    version: 12.04
+  - distribution: ubuntu
+    version: 14.04
+  - distribution: ubuntu
     version: 16.04
-#  - distribution: ubuntu
-#    version: 14.04
-#  - distribution: ubuntu
-#    version: 12.04
 #  - distribution: alpine
 #    version: 3.4
 
