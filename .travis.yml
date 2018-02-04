@@ -39,6 +39,7 @@ before_install:
   - gem list
   - which kitchen
   - kitchen version
+  - kitchen diagnose --log-level=debug --all
   - KITCHEN_YAML=.kitchen.docker.local.yml kitchen diagnose --log-level=debug
 
 script:
