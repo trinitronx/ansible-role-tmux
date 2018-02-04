@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site "https://galaxy.ansible.com/api/v1"
+
+#role "geerlingguy.repo-epel"
+#role "geerlingguy.repo-epel" github: "geerlingguy/ansible-role-repo-epel"
+role "geerlingguy.repo-epel", github: "trinitronx/ansible-role-repo-epel", ref: "fix-spurious-already-installed-failure"
+
