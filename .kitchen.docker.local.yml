@@ -22,21 +22,23 @@ platforms:
 #    provision_command:
 #      - curl -L https://www.opscode.com/chef/install.sh | bash
 #      - yum -y install make gcc which bash tar cronie
-- name: centos-6.4
-  driver_config:
-#    image: learndocker/centos
-    platform: centos
-    provision_command: &OMNIBUS_CHEF_YUM
-      - &OMNIBUS_CHEF curl -L https://www.opscode.com/chef/install.sh | bash
-      - sudo -E yum -y install libselinux-python python2-devel git python-setuptools python-setuptools-dev libffi-devel libssl-devel
-      - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
-      - sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip
-#      - sudo -E pip install jinja2 pyyaml
-      - curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash
-
 - name: centos-6.5
   driver_config:
-#    image: learndocker/centos
+    image: learndocker/centos
+    platform: centos
+    ## NOTE: Sadly this is to clean up the mess that is pip on RHEL 6.x
+    ## Reference: https://github.com/neillturner/omnibus-ansible/issues/9
+    provision_command: &OMNIBUS_CHEF_YUM
+      - &OMNIBUS_CHEF curl -L https://www.opscode.com/chef/install.sh | bash
+      - sudo -E yum -y install libselinux-python python2-devel git python-setuptools python-setuptools-dev libffi-devel libssl-devel openssl-devel
+      - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
+      - sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip
+      - sudo -E yum -y groupinstall 'Development Tools'
+      - sudo -E pip install requests[security] urllib3[secure]
+      - curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash
+
+- name: centos-6.9
+  driver_config:
     platform: centos
     provision_command: *OMNIBUS_CHEF_YUM
 - name: centos-7
@@ -46,6 +48,8 @@ platforms:
       - volume: "/sys/fs/cgroup:/sys/fs/cgroup"
       - "--privileged"
 ## Precise Pangolin (LTS)
+## NOTE: We also need to clean up old version of pip mess here too
+#       (broke due to pypi switching to HTTPS, but they hardcoded HTTP!)
 - name: ubuntu-12.04
   driver_config:
     provision_command: &OMNIBUS_CHEF_APT_PIP_OLD
