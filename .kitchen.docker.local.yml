@@ -28,7 +28,7 @@ platforms:
     platform: centos
     ## NOTE: Sadly this is to clean up the mess that is pip on RHEL 6.x
     ## Reference: https://github.com/neillturner/omnibus-ansible/issues/9
-    provision_command: &OMNIBUS_CHEF_YUM
+    provision_command: &1
       - &OMNIBUS_CHEF curl -L https://www.opscode.com/chef/install.sh | bash
       - sudo -E yum -y install libselinux-python python2-devel git python-setuptools python-setuptools-dev libffi-devel libssl-devel openssl-devel
       - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
@@ -40,9 +40,9 @@ platforms:
 - name: centos-6.9
   driver_config:
     platform: centos
-    provision_command: *OMNIBUS_CHEF_YUM
+    provision_command: *1
 - name: centos-7
-  driver_config: &SYSTEMD_INIT
+  driver_config: &2
     run_command: /usr/sbin/init
     run_options:
       - volume: "/sys/fs/cgroup:/sys/fs/cgroup"
@@ -52,7 +52,7 @@ platforms:
 #       (broke due to pypi switching to HTTPS, but they hardcoded HTTP!)
 - name: ubuntu-12.04
   driver_config:
-    provision_command: &OMNIBUS_CHEF_APT_PIP_OLD
+    provision_command: &3
       - *OMNIBUS_CHEF
       - sudo -E apt-get -y install git python python-setuptools python-pip build-essential python-dev libffi-dev libssl-dev
       - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
@@ -63,7 +63,7 @@ platforms:
 ## Trusty Tahr LTS ## HWE August 2016
 - name: ubuntu-14.04
   driver_config:
-    provision_command: &OMNIBUS_CHEF_APT
+    provision_command: &4
       - *OMNIBUS_CHEF
       - sudo -E apt-get -y install git python python-setuptools python-pip build-essential python-dev libffi-dev libssl-dev
       - sudo -E easy_install pip
@@ -73,4 +73,4 @@ platforms:
 ## Xenial Xerus ## EOL April 2021
 - name: ubuntu-16.04
   driver_config:
-    provision_command: *OMNIBUS_CHEF_APT
+    provision_command: *4
