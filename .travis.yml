@@ -1,6 +1,8 @@
 ---
 dist: trusty
 sudo: required
+services:
+  - docker
 rvm:
   - 2.4
 
@@ -36,6 +38,7 @@ before_install:
   - gem install kitchen-docker
   - gem list
   - which kitchen
+  - kitchen version
   - KITCHEN_YAML=.kitchen.docker.local.yml kitchen diagnose --log-level=debug
 
 script:
