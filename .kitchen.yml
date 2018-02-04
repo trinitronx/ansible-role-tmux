@@ -12,9 +12,9 @@ provisioner:
   require_ansible_repo: false
   require_pip: false
 # Get latest ansible to check ansible_ssh_user bug
-  require_ansible_source: true
-  ansible_version: latest
-  require_ansible_omnibus: false
+#  require_ansible_source: true
+#  ansible_version: latest
+  require_ansible_omnibus: true
 #  ansible_omnibus_url: https://raw.githubusercontent.com/neillturner/omnibus-ansible/17e7f9cac9ca1163324ddf6ec3bd090a31e9719a/ansible_install.sh
   require_chef_for_busser: true
   require_ruby_for_busser: false
