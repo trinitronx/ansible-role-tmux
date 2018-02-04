@@ -1,18 +1,20 @@
 ---
 # tasks file for tmux
 
-- name: tmux Debug
-  debug: >
-    msg="{{ item }}"
-  with_items:
-   # - "{{ tmux }}"
-   - "{{ tmux_users }}"
-   - "{{ ansible_pkg_mgr }}"
-   - "{{ ansible_os_family }}"
+# - name: tmux Debug
+#   debug: >
+#     msg="{{ item }}"
+#   with_items:
+#    # - "{{ tmux }}"
+#    - "{{ tmux_users }}"
+#    - "{{ ansible_pkg_mgr }}"
+#    - "{{ ansible_os_family }}"
 
 - include: apt_package.yml
+  become: true
   when: ansible_pkg_mgr == 'apt'
 - include: yum_package.yml
+  become: true
   when: ansible_pkg_mgr == 'yum'
 - include: homebrew_package.yml
   when: ansible_os_family == 'Darwin'
@@ -24,7 +26,7 @@
     mode=0755
 
 - name: "install tmux config for user: {{ item }}"
-  template: src=tmux.conf.j2 dest=~{{ item }}/.tmux.conf
+  template: src=tmux.conf.j2 dest=~{{ item }}/.tmux.conf owner={{ item }} group={{ item }} mode=644
   with_items: "{{ tmux_users }}"
   tags:
     - tmux_conf
