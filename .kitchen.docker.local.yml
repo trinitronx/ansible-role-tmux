@@ -29,13 +29,13 @@ platforms:
     ## NOTE: Sadly this is to clean up the mess that is pip on RHEL 6.x
     ## Reference: https://github.com/neillturner/omnibus-ansible/issues/9
     provision_command:
-      - &OMNIBUS_CHEF curl -L https://www.opscode.com/chef/install.sh | bash
+      - "curl -L https://www.opscode.com/chef/install.sh | bash"
       - sudo -E yum -y install libselinux-python python2-devel git python-setuptools python-setuptools-dev libffi-devel libssl-devel openssl-devel
-      - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
-      - sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip
+      - "sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1"
+      - "sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip"
       - sudo -E yum -y groupinstall 'Development Tools'
       - sudo -E pip install requests[security] urllib3[secure]
-      - curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash
+      - "curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash"
 
 - name: centos-6.9
   driver_config:
@@ -43,13 +43,13 @@ platforms:
     ## NOTE: Sadly this is to clean up the mess that is pip on RHEL 6.x
     ## Reference: https://github.com/neillturner/omnibus-ansible/issues/9
     provision_command:
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+      - "curl -L https://www.opscode.com/chef/install.sh | bash"
       - sudo -E yum -y install libselinux-python python2-devel git python-setuptools python-setuptools-dev libffi-devel libssl-devel openssl-devel
-      - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
-      - sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip
+      - "sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1"
+      - "sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip"
       - sudo -E yum -y groupinstall 'Development Tools'
       - sudo -E pip install requests[security] urllib3[secure]
-      - curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash
+      - "curl -Ls https://raw.githubusercontent.com/neillturner/omnibus-ansible/master/ansible_install.sh | bash"
 - name: centos-7
   driver_config:
     run_command: /usr/sbin/init
@@ -62,10 +62,10 @@ platforms:
 - name: ubuntu-12.04
   driver_config:
     provision_command:
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+      - "curl -L https://www.opscode.com/chef/install.sh | bash"
       - sudo -E apt-get -y install git python python-setuptools python-pip build-essential python-dev libffi-dev libssl-dev
-      - sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1
-      - sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip
+      - "sudo -E easy_install -i https://pypi.python.org/simple pip==1.2.1"
+      - "sudo -E PIP_INDEX_URL=https://pypi.python.org/simple/  pip install --upgrade pip"
       - sudo -E pip install -U setuptools
       - sudo -E pip install jinja2 pyyaml
 
@@ -73,7 +73,7 @@ platforms:
 - name: ubuntu-14.04
   driver_config:
     provision_command:
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+      - "curl -L https://www.opscode.com/chef/install.sh | bash"
       - sudo -E apt-get -y install git python python-setuptools python-pip build-essential python-dev libffi-dev libssl-dev
       - sudo -E easy_install pip
       - sudo -E pip install --upgrade pip
@@ -83,7 +83,7 @@ platforms:
 - name: ubuntu-16.04
   driver_config:
     provision_command:
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+      - "curl -L https://www.opscode.com/chef/install.sh | bash"
       - sudo -E apt-get -y install git python python-setuptools python-pip build-essential python-dev libffi-dev libssl-dev
       - sudo -E easy_install pip
       - sudo -E pip install --upgrade pip

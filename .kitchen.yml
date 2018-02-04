@@ -29,16 +29,12 @@ platforms:
   ## https://wiki.ubuntu.com/Releases
   ## http://www.ubuntu.com/info/release-end-of-life
   ## - name: ubuntu-10.04 # lucid LTS
-  - name: ubuntu-12.04 # precise LTS
-  ## - name: ubuntu-13.10 # saucy ## EOL July 17, 2014
+  - name: ubuntu-12.04 # precise LTS ## EOL April 28, 2017
   - name: ubuntu-14.04 # trusty LTS
-  ## - name: ubuntu-14.10 # utopic  ## EOL July 23, 2015
-  - name: ubuntu-15.04 # vivid ## EOL January 2016
-  ## - name: ubuntu-15.10 # wily ## EOL July 2016 ## No bento box yet!
-  ## - name: ubuntu-16.04 # xenial LTS ## No bento box yet!
+  - name: ubuntu-16.04 # xenial LTS ## EOL April 2021
   # - name: centos-5.10 # TODO: NOT TESTED YET... unsure if kitchen-ansible works yet...
-  - name: centos-6.4
   - name: centos-6.5
+  - name: centos-6.9
   - name: centos-7.0
   # - name: nocm_centos-6.5
   #   driver_plugin: vagrant
