@@ -17,8 +17,8 @@ fi
 
 #[ ! -d $testhelpersdir/juju4.redhat-epel ] && git clone https://github.com/juju4/ansible-redhat-epel $testhelpersdir/juju4.redhat-epel
 ## galaxy naming: kitchen fails to transfer symlink folder
-#[ ! -e $testhelpersdir/trinitronx.tmux ] && ln -s ansible-role-wemux $testhelpersdir/trinitronx.tmux
-[ ! -e $testhelpersdir/trinitronx.tmux ] && cp -R $testhelpersdir/ansible-role-wemux $testhelpersdir/trinitronx.tmux
+#[ ! -e $testhelpersdir/trinitronx.tmux ] && ln -s ansible-role-tmux $testhelpersdir/trinitronx.tmux
+[ ! -e $testhelpersdir/trinitronx.tmux ] && cp -R $testhelpersdir/ansible-role-tmux $testhelpersdir/trinitronx.tmux
 
 ## don't stop build on this script return code
 true
