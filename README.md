@@ -1,7 +1,9 @@
 trinitronx.tmux
 =========
-[![Gratipay](http://img.shields.io/gratipay/trinitronx.svg)](https://www.gratipay.com/trinitronx)
-[![Ansible Galaxy](https://img.shields.io/ansible/role/1672.svg)](https://galaxy.ansible.com/detail#/role/1672)
+<noscript><a href="https://liberapay.com/trinitronx/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
+[![Build Status](http://img.shields.io/travis/trinitronx/ansible-role-tmux.svg)](https://travis-ci.org/trinitronx/ansible-role-tmux)
+[![Ansible Role Downloads](https://img.shields.io/ansible/role/d/1672.svg)](https://galaxy.ansible.com/trinitronx/tmux/)
+[![Ansible Role](https://img.shields.io/ansible/role/1672.svg)](https://galaxy.ansible.com/trinitronx/tmux/)
 
 Installs and configures [tmux][1] on a host.
 
