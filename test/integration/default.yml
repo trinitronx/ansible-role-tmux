@@ -2,7 +2,7 @@
 # This playbook deploys the tmux role for testing
 
 - hosts: test-kitchen
-  remote_user: root
+  # remote_user: root
 
   roles:
 #    - selinux
